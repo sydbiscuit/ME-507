@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <PrintStream.h>
 //#include <Servo.h>
+// does not work with Nucleo L476RG
 
 //Servo ESC;     // create servo object to control the ESC
 
