@@ -23,7 +23,8 @@ void loop()
 
   potValue = analogRead(PA_0);   // reads the value of the potentiometer (value between 0 and 1023)
   potValue = map(potValue, 0, 1023, 0, 255);
+  //analogWriteFrequency(50);
   analogWrite(PB4, potValue);
   Serial << potValue << endl;
-  delay(20);
+  //delay(20);
 }
