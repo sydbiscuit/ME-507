@@ -19,7 +19,7 @@ void loop()
   potValue = analogRead(PA_0);   
   potValue = map(potValue, 0, 1023, 0, 255);    // reads the value of the potentiometer (value between 0 and 1023)
   
-  analogWrite(PB4, potValue);
+  analogWrite(PB4, potValue);    // potValue(10) sends a 1ms pulse width and is needed to send a stop signal to the ESC. This value needs to be present when the ESC is plugged in 
   analogWriteFrequency(50);  //50 Hz freq
 
   Serial << potValue << endl;
