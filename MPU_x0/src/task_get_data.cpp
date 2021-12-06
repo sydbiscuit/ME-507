@@ -19,7 +19,7 @@
 #include <task_get_data.h>
 
 // Number of data points taken in one set one data set
-const uint16_t num_points = 12;
+const uint16_t num_points = 256;
 
 Adafruit_MPU6050 mpu;
 
@@ -52,17 +52,18 @@ void task_get_data(void* p_params)
         else if (state == 1)
         {
             // Read positions and angular velocity in x and y direction
-            data_queue.put(g.gyro.x);
-            data_queue.put(g.gyro.y);
-            data_queue.put(a.acceleration.x);
-            data_queue.put(a.acceleration.y);
-
-            if (++counter > counter)
+            data_queue_ang_vel_x.put(g.gyro.x);
+            data_queue_ang_vel_y.put(g.gyro.y);
+            data_queue_pos_x.put(a.acceleration.x);
+            data_queue_pos_y.put(a.acceleration.y);
+            
+            // If queue is full, state returns to zero
+            if (++counter > num_points)
             {
                 state = 0;
             }
         }
+        // Runs every 0.1 seconds
+        vTaskDelay(100);
     }
-        
-
 }

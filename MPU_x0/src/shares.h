@@ -19,6 +19,9 @@ extern Share<bool> begin_recording;
 
 // A queue which triggers a task to print the count
 // at certain times
-extern Queue<uint16_t> data_queue;
+extern Queue<float> data_queue_pos_x(256, "pos_x");
+extern Queue<float> data_queue_pos_y(256, "pos_x");
+extern Queue<float> data_queue_ang_vel_x(256, "ang_vel_x");
+extern Queue<float> data_queue_ang_vel_y(256, "ang_vel_y");
 
 #endif
