@@ -18,7 +18,7 @@ void motor1(void* p_params)
 
     for (;;)
     {
-        frequency = fft_values_x_pos.get();
+        frequency = fft_values_x.get();
         analogWriteFrequency(frequency);
         vTaskDelay(100);
     }
@@ -31,3 +31,4 @@ void motor1(void* p_params)
 *    frequency = fft_values_x_pos.get();
 *    analogWriteFrequency(frequency);
 * }
+*/

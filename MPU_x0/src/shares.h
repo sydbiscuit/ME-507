@@ -25,7 +25,11 @@ extern Queue<float> data_queue_ang_vel_x(256, "ang_vel_x");
 extern Queue<float> data_queue_ang_vel_y(256, "ang_vel_y");
 
 extern Share<float> data_share_ang_vel_x("pos_x");
+extern Share<float> data_share_ang_vel_y("pos_y");
+extern Share<float> data_share_pos_x("ang_vel_x");
+extern Share<float> data_share_pos_y("ang_vel_y");
 
-extern Share<float> fft_values_x_pos.get();
+extern Share<float> fft_values_x("fft_x"); //For motor1
+extern Share<float> fft_values_y("fft_y"); //For motor2
 
 #endif
