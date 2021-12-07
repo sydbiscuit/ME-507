@@ -6,19 +6,19 @@
 #include <Adafruit_Sensor.h>
 #include <iostream>
 
-#include <task_motor1.h>
+#include <task_motor2.h>
 #include <shares.h>
 
 int potValue;
 
-void task_motor1(void* p_params)
+void task_motor2(void* p_params)
 {
     uint8_t potValue = 13;
     float frequency = 0;
 
     for (;;)
     {
-        frequency = fft_values_x.get();
+        frequency = fft_values_y.get();
         analogWriteFrequency(frequency);
         vTaskDelay(100);
     }

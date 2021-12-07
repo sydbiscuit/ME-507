@@ -10,7 +10,7 @@
 #include <task_put_in_array.h>
 #include <task_fft.h>
 #include <task_motor1.h>
-#include <task_motor2.h>  // Will copy and paste task_motor2.h as soon as that's figured out
+#include <task_motor2.h>
 
 
 Adafruit_MPU6050 mpu;
@@ -42,7 +42,7 @@ void setup() {
     }
 
     mpu.setAccelerometerRange(MPU6050_RANGE_16_G);
-    mpu.setGyroRange(MPU6050_RANGE_250_DEG;
+    mpu.setGyroRange(MPU6050_RANGE_250_DEG);
     mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
     Serial.print("");
     delay(100);

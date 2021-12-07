@@ -9,6 +9,7 @@
 #include "task_fft.h"
 //   Include math library
 #include <math.h>
+
 #include <Arduino.h>
 #include <task_get_data.h>
 #include <I2Cdev.h>
@@ -19,19 +20,11 @@
 float pos_x[256];
 float pos_y[256];
 
-void task_fft(void *p_params)
-{
-    for (;;)
-    {
-
-    }
-}
-
 //   FORWARD FOURIER TRANSFORM
 //     Input  - input data
 //     Output - transform result
 //     N      - length of both input data and result
-bool CFFT::Forward(const complex *const Input, complex *const Output,
+bool task_fft::Forward(const complex *const Input, complex *const Output,
    const unsigned int N)
 {
    //   Check input parameters
@@ -47,7 +40,7 @@ bool CFFT::Forward(const complex *const Input, complex *const Output,
 
 
 //   FFT implementation
-void CFFT::Perform(complex *const Data, const unsigned int N,
+void task_fft::Perform(complex *const Data, const unsigned int N,
    const bool Inverse /* = false */)
 {
    const double pi = Inverse ? 3.14159265358979323846 : -3.14159265358979323846;

@@ -15,8 +15,8 @@
 */
 
 #ifndef TASK_MOTOR1_H
-#define TASK_MOTOR_H
+#define TASK_MOTOR1_H
 
-void motor1(void* p_params);
+void task_motor1(void* p_params);
 
 #endif
