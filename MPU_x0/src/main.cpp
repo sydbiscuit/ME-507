@@ -1,3 +1,9 @@
+/** @file main.cpp
+ *  This file contains the implementation of all classes and functions
+ *  used in the tremor mug project. 
+ */
+
+
 #include <Arduino.h>
 #include <PrintStream.h>
 #include <Adafruit_MPU6050.h>
@@ -15,13 +21,28 @@
 
 Adafruit_MPU6050 mpu;
 
+Queue<float> data_queue_pos_x(256, "pos_x");
+Queue<float> data_queue_pos_y(256, "pos_x");
+Queue<float> data_queue_ang_vel_x(256, "ang_vel_x");
+Queue<float> data_queue_ang_vel_y(256, "ang_vel_y");
+
+Share<float> data_share_ang_vel_x("pos_x");
+Share<float> data_share_ang_vel_y("pos_y");
+Share<float> data_share_pos_x("ang_vel_x");
+Share<float> data_share_pos_y("ang_vel_y");
+
+Share<float> fft_values_x("fft_x"); //For motor1
+Share<float> fft_values_y("fft_y"); //For motor2
+
 void setup() {
 
     Serial.begin(115200);
-    pinMode(PB4, OUTPUT);
+    pinMode(PC7, OUTPUT);
+    pinMode(PA9, OUTPUT);
     analogWriteResolution(8);
     uint8_t potValue = 13;
-    analogWrite(PB4, potValue);
+    analogWrite(PC7, potValue);
+    analogWrite(PA9, potValue);
 
     //analogWriteFrequency(50);
     Serial << "first time "<<potValue<<endl;

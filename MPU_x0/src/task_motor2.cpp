@@ -13,7 +13,6 @@ int potValue;
 
 void task_motor2(void* p_params)
 {
-    uint8_t potValue = 13;
     float frequency = 0;
 
     for (;;)
