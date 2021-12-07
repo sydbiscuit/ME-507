@@ -24,4 +24,8 @@ extern Queue<float> data_queue_pos_y(256, "pos_x");
 extern Queue<float> data_queue_ang_vel_x(256, "ang_vel_x");
 extern Queue<float> data_queue_ang_vel_y(256, "ang_vel_y");
 
+extern Share<float> data_share_ang_vel_x("pos_x");
+
+extern Share<float> fft_values_x_pos.get();
+
 #endif
