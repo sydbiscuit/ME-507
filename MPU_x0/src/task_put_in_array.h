@@ -9,6 +9,7 @@
 #ifndef TASK_PUT_IN_ARRAY_H
 #define TASK_PUT_IN_ARRAY_H
 
+// Task that takes data collected in queue and puts itinto an array
 void task_put_in_array (void* p_params);
 
 #endif

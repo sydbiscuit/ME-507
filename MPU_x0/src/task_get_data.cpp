@@ -1,7 +1,11 @@
 /** @file task_get_data.cpp
- *  This file contains code for a task which
- *  records data
- *  
+ *  This file contains code for a task which records IMU data
+ *  and puts it into four queues. (1) x - Position (2) y - Position
+ *  (3) x - Angular Velocity (4) y - Angular Velocity
+ * 
+ *  Modeled after Professor Ridgely's example task_take_data.cpp code: 
+ *  https://canvas.calpoly.edu/courses/57860/files/5533521?wrap=1
+ * 
  *  @author Tatum Yee & Sydney Lewis
  *  @date 2 Dec 2021
  */
@@ -26,7 +30,6 @@ Adafruit_MPU6050 mpu;
 /** @brief Task which takes some data and stuffs it into a queue
  *  @param p_params An unused pointer to nonexistent parameters
  */
-
 void task_get_data(void* p_params)
 {
     // State machine takes data or doesn't
@@ -34,6 +37,7 @@ void task_get_data(void* p_params)
     // Counts number of data points recorded
     uint16_t counter;
     
+    // Initializes MPU variables needed
     sensors_event_t a, g, temp;
     mpu.getEvent(&a, &g, &temp);
 
@@ -44,7 +48,7 @@ void task_get_data(void* p_params)
         {
             if (begin_recording.get())
             {
-                begin_recording.put(false);  // What does this line mean...why false
+                begin_recording.put(false);
                 counter = 0;
                 state = 1;
             }
