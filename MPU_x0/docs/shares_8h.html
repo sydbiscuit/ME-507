@@ -24,8 +24,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2021-12-07 at 8.09.03 PM.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Tremor Mug 1<span id="projectnumber">&#160;x1</span>
+   <div id="projectname">Tremor Mug 1<span id="projectnumber">&#160;Version x3</span>
    </div>
    <div id="projectbrief">Tasks to create frequencies to counteract and stabilize hand tremors produced by those with Parkinson&#39;s Disease</div>
   </td>
@@ -98,36 +99,47 @@ $(document).ready(function(){initNavTree('shares_8h.html',''); initResizable(); 
 Variables</h2></td></tr>
 <tr class="memitem:ab749b94a35e875676ec5f4041d91ca53"><td class="memItemLeft" align="right" valign="top"><a id="ab749b94a35e875676ec5f4041d91ca53" name="ab749b94a35e875676ec5f4041d91ca53"></a>
 Share&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>begin_recording</b></td></tr>
+<tr class="memdesc:ab749b94a35e875676ec5f4041d91ca53"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share which holds a counter of how many times a simulated event occured. <br /></td></tr>
 <tr class="separator:ab749b94a35e875676ec5f4041d91ca53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec0eb32b80c1bc365c09384e0495a67d"><td class="memItemLeft" align="right" valign="top"><a id="aec0eb32b80c1bc365c09384e0495a67d" name="aec0eb32b80c1bc365c09384e0495a67d"></a>
 Queue&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_queue_pos_x</b></td></tr>
+<tr class="memdesc:aec0eb32b80c1bc365c09384e0495a67d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A queue that holds 256 positions in the x direction that's taken by a measurement task. <br /></td></tr>
 <tr class="separator:aec0eb32b80c1bc365c09384e0495a67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c67a018954dc9afaaf4a755af82fdbe"><td class="memItemLeft" align="right" valign="top"><a id="a8c67a018954dc9afaaf4a755af82fdbe" name="a8c67a018954dc9afaaf4a755af82fdbe"></a>
 Queue&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_queue_pos_y</b></td></tr>
+<tr class="memdesc:a8c67a018954dc9afaaf4a755af82fdbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">A queue that holds 256 positions in the y direction that's taken by a measurement task. <br /></td></tr>
 <tr class="separator:a8c67a018954dc9afaaf4a755af82fdbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4691e91ade243e9e610d893de05769e"><td class="memItemLeft" align="right" valign="top"><a id="af4691e91ade243e9e610d893de05769e" name="af4691e91ade243e9e610d893de05769e"></a>
 Queue&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_queue_ang_vel_x</b></td></tr>
+<tr class="memdesc:af4691e91ade243e9e610d893de05769e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A queue that holds 256 angular velocity measurements in the x direction that's taken by a measurement task. <br /></td></tr>
 <tr class="separator:af4691e91ade243e9e610d893de05769e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6dca09fa2b2f24e20a50fd877aef67e"><td class="memItemLeft" align="right" valign="top"><a id="ae6dca09fa2b2f24e20a50fd877aef67e" name="ae6dca09fa2b2f24e20a50fd877aef67e"></a>
 Queue&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_queue_ang_vel_y</b></td></tr>
+<tr class="memdesc:ae6dca09fa2b2f24e20a50fd877aef67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A queue that holds 256 angular velocity measurements in the y direction that's taken by a measurement task. <br /></td></tr>
 <tr class="separator:ae6dca09fa2b2f24e20a50fd877aef67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a279134729f78df530745b8039d19a75b"><td class="memItemLeft" align="right" valign="top"><a id="a279134729f78df530745b8039d19a75b" name="a279134729f78df530745b8039d19a75b"></a>
 Share&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_share_ang_vel_x</b></td></tr>
+<tr class="memdesc:a279134729f78df530745b8039d19a75b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share that holds 256 angular velocity measurements in the x direction in an array. <br /></td></tr>
 <tr class="separator:a279134729f78df530745b8039d19a75b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd77d92b9a509b60ac5f9952d0ebb544"><td class="memItemLeft" align="right" valign="top"><a id="acd77d92b9a509b60ac5f9952d0ebb544" name="acd77d92b9a509b60ac5f9952d0ebb544"></a>
 Share&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_share_ang_vel_y</b></td></tr>
+<tr class="memdesc:acd77d92b9a509b60ac5f9952d0ebb544"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share that holds 256 angular velocity measurements in the y direction in an array. <br /></td></tr>
 <tr class="separator:acd77d92b9a509b60ac5f9952d0ebb544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af37acc79c3b851b850ef658882d5a96a"><td class="memItemLeft" align="right" valign="top"><a id="af37acc79c3b851b850ef658882d5a96a" name="af37acc79c3b851b850ef658882d5a96a"></a>
 Share&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_share_pos_x</b></td></tr>
+<tr class="memdesc:af37acc79c3b851b850ef658882d5a96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share that holds 256 x position measurements in an array. <br /></td></tr>
 <tr class="separator:af37acc79c3b851b850ef658882d5a96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a256fb3a8589d75b059dd71ae96c14ccf"><td class="memItemLeft" align="right" valign="top"><a id="a256fb3a8589d75b059dd71ae96c14ccf" name="a256fb3a8589d75b059dd71ae96c14ccf"></a>
 Share&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_share_pos_y</b></td></tr>
+<tr class="memdesc:a256fb3a8589d75b059dd71ae96c14ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share that holds 256 y position measurements in an array. <br /></td></tr>
 <tr class="separator:a256fb3a8589d75b059dd71ae96c14ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdc58464ca4e39c9aee04e9b4f1fd253"><td class="memItemLeft" align="right" valign="top"><a id="afdc58464ca4e39c9aee04e9b4f1fd253" name="afdc58464ca4e39c9aee04e9b4f1fd253"></a>
 Share&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fft_values_x</b></td></tr>
+<tr class="memdesc:afdc58464ca4e39c9aee04e9b4f1fd253"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share that holds a frequency that motor 1 will run at to counter tremor along x axis. <br /></td></tr>
 <tr class="separator:afdc58464ca4e39c9aee04e9b4f1fd253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a385ec2f7149c1f8d2f2a49e42d7b4803"><td class="memItemLeft" align="right" valign="top"><a id="a385ec2f7149c1f8d2f2a49e42d7b4803" name="a385ec2f7149c1f8d2f2a49e42d7b4803"></a>
 Share&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fft_values_y</b></td></tr>
+<tr class="memdesc:a385ec2f7149c1f8d2f2a49e42d7b4803"><td class="mdescLeft">&#160;</td><td class="mdescRight">A share that holds a frequency that motor 2 will run at to counter tremor along y axis. <br /></td></tr>
 <tr class="separator:a385ec2f7149c1f8d2f2a49e42d7b4803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

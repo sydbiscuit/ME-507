@@ -24,8 +24,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2021-12-07 at 8.09.03 PM.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Tremor Mug 1<span id="projectnumber">&#160;x1</span>
+   <div id="projectname">Tremor Mug 1<span id="projectnumber">&#160;Version x3</span>
    </div>
    <div id="projectbrief">Tasks to create frequencies to counteract and stabilize hand tremors produced by those with Parkinson&#39;s Disease</div>
   </td>
@@ -94,33 +95,41 @@ $(document).ready(function(){initNavTree('shares_8h_source.html',''); initResiza
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;taskshare.h&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;PrintStream.h&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// A share which holds a counter of how many times a simulated event occured </span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> Share&lt;bool&gt; begin_recording;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> Share&lt;bool&gt; <a class="code hl_variable" href="shares_8h.html#ab749b94a35e875676ec5f4041d91ca53">begin_recording</a>;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// A queue that holds 256 positions in the x direction that&#39;s taken by a measurement task</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">extern</span> Queue&lt;float&gt; data_queue_pos_x;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// A queue that holds 256 positions in the y direction that&#39;s taken by a measurement task</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">extern</span> Queue&lt;float&gt; data_queue_pos_y;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">// A queue that holds 256 angular velocity measurements in the x direction that&#39;s taken by a measurement task</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">extern</span> Queue&lt;float&gt; data_queue_ang_vel_x;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">// A queue that holds 256 angular velocity measurements in the y direction that&#39;s taken by a measurement task</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> Queue&lt;float&gt; data_queue_ang_vel_y;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">extern</span> Queue&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#aec0eb32b80c1bc365c09384e0495a67d">data_queue_pos_x</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">extern</span> Queue&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#a8c67a018954dc9afaaf4a755af82fdbe">data_queue_pos_y</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> Queue&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#af4691e91ade243e9e610d893de05769e">data_queue_ang_vel_x</a>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// A share that holds 256 angular velocity measurements in the x direction in an array</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">extern</span> Share&lt;float&gt; data_share_ang_vel_x;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// A share that holds 256 angular velocity measurements in the y direction in an array</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">extern</span> Share&lt;float&gt; data_share_ang_vel_y;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// A share that holds 256 x position measurements in an array</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> Share&lt;float&gt; data_share_pos_x;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">// A share that holds 256 y position measurements in an array</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">extern</span> Share&lt;float&gt; data_share_pos_y;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// A share that holds a frequency that motor 1 will run at to counter tremor along x axis</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">extern</span> Share&lt;float&gt; fft_values_x; <span class="comment">//For motor1</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">// A share that holds a frequency that motor 2 will run at to counter tremor along y axis</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">extern</span> Share&lt;float&gt; fft_values_y; <span class="comment">//For motor2</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">extern</span> Queue&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#ae6dca09fa2b2f24e20a50fd877aef67e">data_queue_ang_vel_y</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> Share&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#a279134729f78df530745b8039d19a75b">data_share_ang_vel_x</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">extern</span> Share&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#acd77d92b9a509b60ac5f9952d0ebb544">data_share_ang_vel_y</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">extern</span> Share&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#af37acc79c3b851b850ef658882d5a96a">data_share_pos_x</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> Share&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#a256fb3a8589d75b059dd71ae96c14ccf">data_share_pos_y</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">extern</span> Share&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#afdc58464ca4e39c9aee04e9b4f1fd253">fft_values_x</a>; <span class="comment">//For motor1</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span><span class="keyword">extern</span> Share&lt;float&gt; <a class="code hl_variable" href="shares_8h.html#a385ec2f7149c1f8d2f2a49e42d7b4803">fft_values_y</a>; <span class="comment">//For motor2</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ashares_8h_html_a256fb3a8589d75b059dd71ae96c14ccf"><div class="ttname"><a href="shares_8h.html#a256fb3a8589d75b059dd71ae96c14ccf">data_share_pos_y</a></div><div class="ttdeci">Share&lt; float &gt; data_share_pos_y</div><div class="ttdoc">A share that holds 256 y position measurements in an array.</div></div>
+<div class="ttc" id="ashares_8h_html_a279134729f78df530745b8039d19a75b"><div class="ttname"><a href="shares_8h.html#a279134729f78df530745b8039d19a75b">data_share_ang_vel_x</a></div><div class="ttdeci">Share&lt; float &gt; data_share_ang_vel_x</div><div class="ttdoc">A share that holds 256 angular velocity measurements in the x direction in an array.</div></div>
+<div class="ttc" id="ashares_8h_html_a385ec2f7149c1f8d2f2a49e42d7b4803"><div class="ttname"><a href="shares_8h.html#a385ec2f7149c1f8d2f2a49e42d7b4803">fft_values_y</a></div><div class="ttdeci">Share&lt; float &gt; fft_values_y</div><div class="ttdoc">A share that holds a frequency that motor 2 will run at to counter tremor along y axis.</div></div>
+<div class="ttc" id="ashares_8h_html_a8c67a018954dc9afaaf4a755af82fdbe"><div class="ttname"><a href="shares_8h.html#a8c67a018954dc9afaaf4a755af82fdbe">data_queue_pos_y</a></div><div class="ttdeci">Queue&lt; float &gt; data_queue_pos_y</div><div class="ttdoc">A queue that holds 256 positions in the y direction that's taken by a measurement task.</div></div>
+<div class="ttc" id="ashares_8h_html_ab749b94a35e875676ec5f4041d91ca53"><div class="ttname"><a href="shares_8h.html#ab749b94a35e875676ec5f4041d91ca53">begin_recording</a></div><div class="ttdeci">Share&lt; bool &gt; begin_recording</div><div class="ttdoc">A share which holds a counter of how many times a simulated event occured.</div></div>
+<div class="ttc" id="ashares_8h_html_acd77d92b9a509b60ac5f9952d0ebb544"><div class="ttname"><a href="shares_8h.html#acd77d92b9a509b60ac5f9952d0ebb544">data_share_ang_vel_y</a></div><div class="ttdeci">Share&lt; float &gt; data_share_ang_vel_y</div><div class="ttdoc">A share that holds 256 angular velocity measurements in the y direction in an array.</div></div>
+<div class="ttc" id="ashares_8h_html_ae6dca09fa2b2f24e20a50fd877aef67e"><div class="ttname"><a href="shares_8h.html#ae6dca09fa2b2f24e20a50fd877aef67e">data_queue_ang_vel_y</a></div><div class="ttdeci">Queue&lt; float &gt; data_queue_ang_vel_y</div><div class="ttdoc">A queue that holds 256 angular velocity measurements in the y direction that's taken by a measurement...</div></div>
+<div class="ttc" id="ashares_8h_html_aec0eb32b80c1bc365c09384e0495a67d"><div class="ttname"><a href="shares_8h.html#aec0eb32b80c1bc365c09384e0495a67d">data_queue_pos_x</a></div><div class="ttdeci">Queue&lt; float &gt; data_queue_pos_x</div><div class="ttdoc">A queue that holds 256 positions in the x direction that's taken by a measurement task.</div></div>
+<div class="ttc" id="ashares_8h_html_af37acc79c3b851b850ef658882d5a96a"><div class="ttname"><a href="shares_8h.html#af37acc79c3b851b850ef658882d5a96a">data_share_pos_x</a></div><div class="ttdeci">Share&lt; float &gt; data_share_pos_x</div><div class="ttdoc">A share that holds 256 x position measurements in an array.</div></div>
+<div class="ttc" id="ashares_8h_html_af4691e91ade243e9e610d893de05769e"><div class="ttname"><a href="shares_8h.html#af4691e91ade243e9e610d893de05769e">data_queue_ang_vel_x</a></div><div class="ttdeci">Queue&lt; float &gt; data_queue_ang_vel_x</div><div class="ttdoc">A queue that holds 256 angular velocity measurements in the x direction that's taken by a measurement...</div></div>
+<div class="ttc" id="ashares_8h_html_afdc58464ca4e39c9aee04e9b4f1fd253"><div class="ttname"><a href="shares_8h.html#afdc58464ca4e39c9aee04e9b4f1fd253">fft_values_x</a></div><div class="ttdeci">Share&lt; float &gt; fft_values_x</div><div class="ttdoc">A share that holds a frequency that motor 1 will run at to counter tremor along x axis.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
