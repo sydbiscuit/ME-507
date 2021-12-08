@@ -26,30 +26,51 @@
 #include <task_motor1.h>
 #include <task_motor2.h>
 
-// Initializes Adafruit's MPU6050 sensor 
+/** @brief Initializes Adafruit's MPU6050 sensor */
 Adafruit_MPU6050 mpu;
 
-// A queue that holds 256 positions in the x direction that's taken by a measurement task
+/** @brief A share which holds a counter of how many times a simulated event occured 
+ */
+Share<bool> begin_recording("Recording");
+
+/** @brief A queue that holds 256 positions in the x direction that's taken by a measurement task
+ */
 Queue<float> data_queue_pos_x(256, "pos_x");
-// A queue that holds 256 positions in the y direction that's taken by a measurement task
+
+/** @brief A queue that holds 256 positions in the y direction that's taken by a measurement task
+ */
 Queue<float> data_queue_pos_y(256, "pos_x");
-// A queue that holds 256 angular velocity measurements in the x direction that's taken by a measurement task
+
+/** @brief A queue that holds 256 angular velocity measurements in the x direction that's taken by a measurement task
+ */
 Queue<float> data_queue_ang_vel_x(256, "ang_vel_x");
-// A queue that holds 256 angular velocity measurements in the y direction that's taken by a measurement task
+
+/** @brief A queue that holds 256 angular velocity measurements in the y direction that's taken by a measurement task
+ */
 Queue<float> data_queue_ang_vel_y(256, "ang_vel_y");
 
-// A share that holds 256 angular velocity measurements in the x direction in an array
+/** @brief A share that holds 256 angular velocity measurements in the x direction in an array
+ */
 Share<float> data_share_ang_vel_x("ang_vel_x");
-// A share that holds 256 angular velocity measurements in the y direction in an array
+
+/** @brief A share that holds 256 angular velocity measurements in the y direction in an array
+ */
 Share<float> data_share_ang_vel_y("ang_vel_y");
-// A share that holds 256 x position measurements in an array
+
+/** @brief A share that holds 256 x position measurements in an array
+ */
 Share<float> data_share_pos_x("pos_x");
-// A share that holds 256 y position measurements in an array
+
+/** @brief A share that holds 256 y position measurements in an array
+ */
 Share<float> data_share_pos_y("pos_y");
 
-// A share that holds a frequency that motor 1 will run at to counter tremor along x axis
+/** @brief A share that holds a frequency that motor 1 will run at to counter tremor along x axis
+ */
 Share<float> fft_values_x("fft_x");
-// A share that holds a frequency that motor 2 will run at to counter tremor along y axis
+
+/** @brief A share that holds a frequency that motor 2 will run at to counter tremor along y axis
+ */
 Share<float> fft_values_y("fft_y");
 
 /** @brief Task which controls when data is taken
@@ -94,7 +115,7 @@ void setup() {
     Serial << "first time "<<potValue<<endl;
     delay(1);
 
-    // Code (lines 97-122) from Adafruit MPU6050
+    // Code (lines 102-125) from Adafruit MPU6050
     // https://github.com/sydbiscuit/ME-507/blob/main/MPU6050/src/main.cpp
     while (!Serial)
     {
@@ -122,7 +143,6 @@ void setup() {
     mpu.getEvent(&a, &g, &temp);
     
     // Initialize the recording share to indicate we're not taking data yet
-    // From Professor Ridgely's program
     begin_recording.put(false);
 
     // Creates a task that records IMU data and puts it into queues

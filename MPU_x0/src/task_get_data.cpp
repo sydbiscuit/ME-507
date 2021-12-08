@@ -22,9 +22,10 @@
 #include <shares.h>
 #include <task_get_data.h>
 
-// Number of data points taken in one set one data set
+/** @brief Number of data points taken in one set one data set */
 const uint16_t num_points = 256;
 
+/** @brief Initializing MPU */
 Adafruit_MPU6050 mpu;
 
 /** @brief Task which takes some data and stuffs it into a queue
@@ -53,6 +54,7 @@ void task_get_data(void* p_params)
                 state = 1;
             }
         }
+        // In state 1, we take data and put it into a queue
         else if (state == 1)
         {
             // Read positions and angular velocity in x and y direction

@@ -10,6 +10,7 @@
 #ifndef TASK_GET_DATA_H
 #define TASK_GET_DATA_H
 
+// Task which takes some data and stuffs it into a queue
 void task_get_data (void* p_params);
 
 #endif
